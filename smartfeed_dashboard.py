@@ -180,7 +180,7 @@ if page == "📊 Ringkasan Data":
         st.markdown('<div class="section-title">Porsi Konsentrat per Status</div>', unsafe_allow_html=True)
         fig, ax = plt.subplots(figsize=(5, 4))
         data_box = [df[df['status_kesehatan']==s]['porsi_konsentrat_pct'].values for s in ORDER]
-        bp = ax.boxplot(data_box, labels=ORDER, patch_artist=True)
+        bp = ax.boxplot(data_box, tick_labels=ORDER, patch_artist=True)
         for patch, s in zip(bp['boxes'], ORDER):
             patch.set_facecolor(COLORS[s]); patch.set_alpha(0.7)
         ax.axhline(38, color='blue', linestyle='--', linewidth=1.5, label='Optimal (38%)')
